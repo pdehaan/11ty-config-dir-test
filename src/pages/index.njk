@@ -1,0 +1,22 @@
+---
+title: HOME
+permalink: /
+---
+
+<header>
+  <h1>{{ title }}</h1>
+</header>
+
+This should be excerpted
+
+<!--more-->
+
+This is the main body of the page, the previous bit twas but an excerpt.
+
+<hr />
+
+<ul>
+  {% for page in collections.pages | reverse %}
+  <li><a href="{{ page.data.page.url | url }}">{{ page.data.title }}</a> &mdash; {{ page.data.page.excerpt | striptags }} on {% time page.data.page.date, "short" %}</li>
+  {% endfor %}
+</ul>
